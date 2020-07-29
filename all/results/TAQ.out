@@ -1,0 +1,100 @@
+-
+taq0023.in Correct 621
+572 node number
+11 terminal number
+3 ms graph read
+3400 ms distances duration
+356 ms copy duration
+6251 us first phase duration
+116438 us second phase duration
+3880 ms everything
+-
+taq0431.in Correct 897
+1128 node number
+13 terminal number
+10 ms graph read
+25888 ms distances duration
+307 ms copy duration
+99614 us first phase duration
+3049414 us second phase duration
+29345 ms everything
+-
+taq0631.in Correct 581
+609 node number
+10 terminal number
+3 ms graph read
+4148 ms distances duration
+269 ms copy duration
+1203 us first phase duration
+1187 us second phase duration
+4420 ms everything
+-
+taq0891.in Correct 319
+331 node number
+10 terminal number
+0 ms graph read
+665 ms distances duration
+243 ms copy duration
+1222 us first phase duration
+1217 us second phase duration
+911 ms everything
+-
+taq0978.in Correct 566
+777 node number
+10 terminal number
+4 ms graph read
+8480 ms distances duration
+313 ms copy duration
+1207 us first phase duration
+1178 us second phase duration
+8796 ms everything
+-
+taq0739.in Correct 848
+837 node number
+16 terminal number
+6 ms graph read
+10605 ms distances duration
+516 ms copy duration
+3611615 us first phase duration
+15701764 us second phase duration
+30439 ms everything
+-
+taq0741.in Correct 847
+712 node number
+16 terminal number
+4 ms graph read
+6568 ms distances duration
+476 ms copy duration
+3352744 us first phase duration
+9718534 us second phase duration
+20119 ms everything
+-
+taq0751.in Correct 939
+1051 node number
+16 terminal number
+10 ms graph read
+21189 ms distances duration
+481 ms copy duration
+3894623 us first phase duration
+25061271 us second phase duration
+50630 ms everything
+-
+taq0910.in Correct 370
+310 node number
+17 terminal number
+0 ms graph read
+545 ms distances duration
+385 ms copy duration
+9012363 us first phase duration
+3210345 us second phase duration
+13160 ms everything
+-
+taq0920.in Correct 210
+122 node number
+17 terminal number
+0 ms graph read
+39 ms distances duration
+320 ms copy duration
+6820832 us first phase duration
+805241 us second phase duration
+7992 ms everything

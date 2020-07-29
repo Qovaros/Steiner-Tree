@@ -1,0 +1,50 @@
+-
+antiwheel5.in Correct 7
+10 node number
+5 terminal number
+0 ms graph read
+0 ms distances duration
+215 ms copy duration
+47 us first phase duration
+37 us second phase duration
+216 ms everything
+-
+design432.in Correct 9
+8 node number
+4 terminal number
+0 ms graph read
+0 ms distances duration
+298 ms copy duration
+33 us first phase duration
+19 us second phase duration
+298 ms everything
+-
+oddcycle3.in Correct 4
+6 node number
+3 terminal number
+0 ms graph read
+0 ms distances duration
+236 ms copy duration
+29 us first phase duration
+11 us second phase duration
+236 ms everything
+-
+oddwheel3.in Correct 5
+7 node number
+4 terminal number
+0 ms graph read
+0 ms distances duration
+208 ms copy duration
+48 us first phase duration
+38 us second phase duration
+208 ms everything
+-
+se03.in Correct 12
+13 node number
+4 terminal number
+0 ms graph read
+0 ms distances duration
+235 ms copy duration
+25 us first phase duration
+18 us second phase duration
+235 ms everything

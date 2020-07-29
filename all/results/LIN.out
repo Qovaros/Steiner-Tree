@@ -1,0 +1,120 @@
+-
+lin01.in Correct 503
+53 node number
+4 terminal number
+0 ms graph read
+7 ms distances duration
+206 ms copy duration
+43 us first phase duration
+34 us second phase duration
+213 ms everything
+-
+lin02.in Correct 557
+55 node number
+6 terminal number
+0 ms graph read
+3 ms distances duration
+257 ms copy duration
+83 us first phase duration
+73 us second phase duration
+260 ms everything
+-
+lin03.in Correct 926
+57 node number
+8 terminal number
+0 ms graph read
+5 ms distances duration
+323 ms copy duration
+310 us first phase duration
+307 us second phase duration
+329 ms everything
+-
+lin04.in Correct 1239
+157 node number
+6 terminal number
+0 ms graph read
+79 ms distances duration
+314 ms copy duration
+82 us first phase duration
+75 us second phase duration
+394 ms everything
+-
+lin05.in Correct 1703
+160 node number
+9 terminal number
+0 ms graph read
+86 ms distances duration
+228 ms copy duration
+614 us first phase duration
+601 us second phase duration
+316 ms everything
+-
+lin06.in Correct 1348
+165 node number
+14 terminal number
+0 ms graph read
+91 ms distances duration
+302 ms copy duration
+198618 us first phase duration
+203938 us second phase duration
+797 ms everything
+-
+lin07.in Correct 1885
+307 node number
+6 terminal number
+0 ms graph read
+534 ms distances duration
+275 ms copy duration
+81 us first phase duration
+74 us second phase duration
+809 ms everything
+-
+lin08.in Correct 2248
+311 node number
+10 terminal number
+1 ms graph read
+566 ms distances duration
+250 ms copy duration
+1365 us first phase duration
+1344 us second phase duration
+819 ms everything
+-
+lin09.in Correct 2752
+313 node number
+12 terminal number
+1 ms graph read
+565 ms distances duration
+272 ms copy duration
+23168 us first phase duration
+99914 us second phase duration
+961 ms everything
+-
+lin11.in Correct 4280
+816 node number
+10 terminal number
+6 ms graph read
+9927 ms distances duration
+331 ms copy duration
+1218 us first phase duration
+1206 us second phase duration
+10262 ms everything
+-
+lin12.in Correct 5250
+818 node number
+12 terminal number
+6 ms graph read
+10028 ms distances duration
+285 ms copy duration
+25527 us first phase duration
+674476 us second phase duration
+11014 ms everything
+-
+lin13.in Correct 4609
+822 node number
+16 terminal number
+5 ms graph read
+10180 ms distances duration
+485 ms copy duration
+3592691 us first phase duration
+15023149 us second phase duration
+29286 ms everything
