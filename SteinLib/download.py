@@ -9,8 +9,9 @@ test_url = 'http://steinlib.zib.de/download/{}.tgz'
 solution_url = 'http://steinlib.zib.de/showset.php?{}'
 target_path = 'test.tar.gz'
 test_folder_name = 'test/'
-test_names = ['B', 'C', 'ES10FST']
-
+test_names = ['B', 'C', 'D', 'E', 'SP', 'PUC', 'I080', 'I160', 'I320', 'I640', 'P4Z', 'P6E', 'P6Z', 'DIW', 'DMXA', 'GAP', 'MSM', 'TAQ', 'LIN', 'ES10FST']
+max_terminal_number = 20
+max_node_number = 1500
 
 def get_solutions(name):
     html = requests.get(solution_url.format(name)).text
@@ -19,7 +20,10 @@ def get_solutions(name):
     solutions = []
     for tr in table_rows:
         for td in tr.find_all("td", attrs={"bgcolor": "#FFFF00"}):
-            solutions.append(int(td.getText()))
+            if td.getText() == '----\xa0':
+                solutions.append(0)
+            else:
+                solutions.append(int(td.getText()))
 
     return solutions
 
@@ -39,7 +43,13 @@ def download_tests(name):
 def convert_tests(name, solutions):
     if not os.path.exists(test_folder_name + name):
         os.makedirs(test_folder_name + name)
+
+    filtered_files = [file for file in os.listdir(name) if file.endswith(".crd") or file.endswith("p4z100.grp") ]
+    for file in filtered_files:
+	    os.remove(os.path.join(name, file))
+    
     for file_name, solution in zip(sorted(os.listdir(name)), solutions):
+        print(file_name, solution)
         edges, terminals, nodes = [], [], 0
         with open(name + '/' + file_name, 'r') as f:
             for line in f.readlines():
@@ -52,7 +62,7 @@ def convert_tests(name, solutions):
                     if line[0] == 'T':
                         terminals.append(line[1])
         os.remove(name + '/' + file_name)
-        if len(terminals) > 13:
+        if len(terminals) < 16 or len(terminals) > 20 or int(nodes) > max_node_number:
             continue
         with open(test_folder_name + name + '/' + file_name[:-4] + '.in', 'w') as f:
             f.write(str(nodes) + ' ' + str(len(edges)) + '\n')
