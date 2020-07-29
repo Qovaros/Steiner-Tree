@@ -1,4 +1,5 @@
-test
 settings.json
-bin
-build
+algorithms/Dreyfus-Wagner/test/
+algorithms/Dreyfus-Wagner/results/
+algorithms/Dreyfus-Wagner/bin/
+algorithms/Dreyfus-Wagner/build/

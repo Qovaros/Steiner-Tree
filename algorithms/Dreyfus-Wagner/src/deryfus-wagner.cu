@@ -1,3 +1,6 @@
+#include "common.h"
+#include "dreyfus-wagner.h"
+#include <chrono>
 #include <iostream>
 #include <stdint.h>
 #include <vector>
@@ -98,27 +101,58 @@ copyDynamicTableToDevice(const std::vector<std::vector<int>> &distances,
     return cudaDynamicTable;
 }
 
-int dreyfusWagner(const std::vector<std::vector<int>> &distances,
-                  const std::vector<int> &terminals) {
+DreyfusWagnerStatistics dreyfusWagner(std::vector<std::vector<int>> &distances,
+                                      const std::vector<int> &terminals) {
+    DreyfusWagnerStatistics statistics = {0, 0, 0, 0, 0, 0};
     if (terminals.size() <= 1) {
-        return 0;
+        return statistics;
     }
     const int fullMask = (1 << (terminals.size() - 1)) - 1;
     int grid_size_nodes = distances.size() / BLOCK_SIZE + 1;
 
+    auto beforeFloydWarshall = std::chrono::steady_clock::now();
+    floydWarshall(distances);
+    auto afterFloydWarshall = std::chrono::steady_clock::now();
+    statistics.distancesDuration =
+        std::chrono::duration_cast<std::chrono::milliseconds>(
+            afterFloydWarshall - beforeFloydWarshall)
+            .count();
+
+    auto beforeCopy = std::chrono::steady_clock::now();
     int *cudaDistances = copyDistancesToDevice(distances);
     int *cudaDynamicTable =
         copyDynamicTableToDevice(distances, terminals, fullMask);
-
+    auto afterCopy = std::chrono::steady_clock::now();
+    statistics.copyDuration =
+        std::chrono::duration_cast<std::chrono::milliseconds>(afterCopy -
+                                                              beforeCopy)
+            .count();
+    std::chrono::nanoseconds firstPhase(0), secondPhase(0);
     for (int mask = 1; mask <= fullMask; mask++) {
+        auto beforeFirstStep = std::chrono::steady_clock::now();
         dreyfusWagnerFirstStep<<<grid_size_nodes, BLOCK_SIZE>>>(
             cudaDistances, cudaDynamicTable, distances.size(), mask);
+        auto afterFirstStep = std::chrono::steady_clock::now();
         dreyfusWagnerSecondStep<<<grid_size_nodes, BLOCK_SIZE>>>(
             cudaDistances, cudaDynamicTable, distances.size(), mask);
+        auto afterSecondStep = std::chrono::steady_clock::now();
+        firstPhase += std::chrono::duration_cast<std::chrono::nanoseconds>(
+            afterFirstStep - beforeFirstStep);
+        secondPhase += std::chrono::duration_cast<std::chrono::nanoseconds>(
+            afterSecondStep - afterFirstStep);
     }
-
-    int result;
-    cudaMemcpy(&result,
+    auto end = std::chrono::steady_clock::now();
+    statistics.firstPhaseDuration =
+        std::chrono::duration_cast<std::chrono::microseconds>(firstPhase)
+            .count();
+    statistics.secondPhaseDuration =
+        std::chrono::duration_cast<std::chrono::microseconds>(secondPhase)
+            .count();
+    statistics.everythingDuration =
+        std::chrono::duration_cast<std::chrono::milliseconds>(
+            end - beforeFloydWarshall)
+            .count();
+    cudaMemcpy(&statistics.result,
                cudaDynamicTable +
                    (fullMask * distances.size() + terminals.back()),
                1 * sizeof(int), cudaMemcpyDeviceToHost);
@@ -126,5 +160,5 @@ int dreyfusWagner(const std::vector<std::vector<int>> &distances,
     cudaFree(cudaDistances);
     cudaFree(cudaDynamicTable);
 
-    return result;
+    return statistics;
 }

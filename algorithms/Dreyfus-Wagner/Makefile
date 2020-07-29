@@ -49,6 +49,7 @@ test-cpu: $(CPU_OUT_DIR)/$(TARGET_RELEASE)
 	python3 ../../SteinLib/test.py bin/cpu/program
 
 test-gpu: $(GPU_OUT_DIR)/$(TARGET_RELEASE)
+	rm -rf results/*
 	python3 ../../SteinLib/test.py bin/gpu/program
 
 test-download:
