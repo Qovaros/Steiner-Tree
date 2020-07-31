@@ -1,0 +1,60 @@
+-
+dmxa0296.in Correct 344
+233 node number
+12 terminal number
+0 ms graph read
+239 ms distances duration
+1 ms copy duration
+755211 us first phase duration
+2243306 us second phase duration
+3239 ms everything
+-
+dmxa0628.in Correct 275
+169 node number
+10 terminal number
+0 ms graph read
+93 ms distances duration
+0 ms copy duration
+57846 us first phase duration
+288557 us second phase duration
+440 ms everything
+-
+dmxa0734.in Correct 506
+663 node number
+11 terminal number
+4 ms graph read
+5293 ms distances duration
+2 ms copy duration
+694850 us first phase duration
+8848721 us second phase duration
+14838 ms everything
+-
+dmxa0903.in Correct 580
+632 node number
+10 terminal number
+3 ms graph read
+4576 ms distances duration
+0 ms copy duration
+219098 us first phase duration
+3998711 us second phase duration
+8795 ms everything
+-
+dmxa1304.in Correct 311
+298 node number
+10 terminal number
+0 ms graph read
+487 ms distances duration
+0 ms copy duration
+102566 us first phase duration
+892592 us second phase duration
+1483 ms everything
+-
+dmxa1516.in Correct 508
+720 node number
+11 terminal number
+4 ms graph read
+6742 ms distances duration
+2 ms copy duration
+746849 us first phase duration
+10405359 us second phase duration
+17896 ms everything

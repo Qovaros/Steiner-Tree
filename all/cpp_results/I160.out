@@ -1,0 +1,500 @@
+-
+i160-001.in Correct 2490
+160 node number
+7 terminal number
+0 ms graph read
+82 ms distances duration
+0 ms copy duration
+1880 us first phase duration
+31804 us second phase duration
+116 ms everything
+-
+i160-002.in Correct 2158
+160 node number
+7 terminal number
+0 ms graph read
+82 ms distances duration
+0 ms copy duration
+1885 us first phase duration
+31786 us second phase duration
+115 ms everything
+-
+i160-003.in Correct 2297
+160 node number
+7 terminal number
+0 ms graph read
+77 ms distances duration
+0 ms copy duration
+1944 us first phase duration
+32625 us second phase duration
+112 ms everything
+-
+i160-004.in Correct 2370
+160 node number
+7 terminal number
+0 ms graph read
+83 ms distances duration
+0 ms copy duration
+1872 us first phase duration
+31752 us second phase duration
+116 ms everything
+-
+i160-005.in Correct 2495
+160 node number
+7 terminal number
+0 ms graph read
+79 ms distances duration
+0 ms copy duration
+1882 us first phase duration
+31866 us second phase duration
+112 ms everything
+-
+i160-011.in Correct 1677
+160 node number
+7 terminal number
+0 ms graph read
+89 ms distances duration
+0 ms copy duration
+1959 us first phase duration
+33205 us second phase duration
+125 ms everything
+-
+i160-012.in Correct 1750
+160 node number
+7 terminal number
+0 ms graph read
+82 ms distances duration
+0 ms copy duration
+1874 us first phase duration
+31713 us second phase duration
+116 ms everything
+-
+i160-013.in Correct 1661
+160 node number
+7 terminal number
+0 ms graph read
+85 ms distances duration
+0 ms copy duration
+1908 us first phase duration
+32133 us second phase duration
+119 ms everything
+-
+i160-014.in Correct 1778
+160 node number
+7 terminal number
+0 ms graph read
+80 ms distances duration
+0 ms copy duration
+1883 us first phase duration
+31708 us second phase duration
+114 ms everything
+-
+i160-015.in Correct 1768
+160 node number
+7 terminal number
+0 ms graph read
+82 ms distances duration
+0 ms copy duration
+1894 us first phase duration
+31710 us second phase duration
+115 ms everything
+-
+i160-021.in Correct 1352
+160 node number
+7 terminal number
+5 ms graph read
+80 ms distances duration
+0 ms copy duration
+1801 us first phase duration
+31680 us second phase duration
+113 ms everything
+-
+i160-022.in Correct 1365
+160 node number
+7 terminal number
+3 ms graph read
+80 ms distances duration
+0 ms copy duration
+1799 us first phase duration
+31621 us second phase duration
+113 ms everything
+-
+i160-023.in Correct 1351
+160 node number
+7 terminal number
+4 ms graph read
+79 ms distances duration
+0 ms copy duration
+1807 us first phase duration
+31763 us second phase duration
+112 ms everything
+-
+i160-024.in Correct 1371
+160 node number
+7 terminal number
+5 ms graph read
+78 ms distances duration
+0 ms copy duration
+1792 us first phase duration
+31597 us second phase duration
+112 ms everything
+-
+i160-025.in Correct 1366
+160 node number
+7 terminal number
+5 ms graph read
+75 ms distances duration
+0 ms copy duration
+1805 us first phase duration
+31883 us second phase duration
+109 ms everything
+-
+i160-031.in Correct 2170
+160 node number
+7 terminal number
+0 ms graph read
+82 ms distances duration
+0 ms copy duration
+1890 us first phase duration
+31745 us second phase duration
+116 ms everything
+-
+i160-032.in Correct 2330
+160 node number
+7 terminal number
+0 ms graph read
+79 ms distances duration
+0 ms copy duration
+1934 us first phase duration
+31860 us second phase duration
+113 ms everything
+-
+i160-033.in Correct 2101
+160 node number
+7 terminal number
+0 ms graph read
+83 ms distances duration
+0 ms copy duration
+1917 us first phase duration
+31851 us second phase duration
+117 ms everything
+-
+i160-034.in Correct 2083
+160 node number
+7 terminal number
+0 ms graph read
+83 ms distances duration
+0 ms copy duration
+1883 us first phase duration
+31772 us second phase duration
+117 ms everything
+-
+i160-035.in Correct 2103
+160 node number
+7 terminal number
+0 ms graph read
+77 ms distances duration
+0 ms copy duration
+1877 us first phase duration
+31721 us second phase duration
+111 ms everything
+-
+i160-041.in Correct 1494
+160 node number
+7 terminal number
+1 ms graph read
+82 ms distances duration
+0 ms copy duration
+1890 us first phase duration
+31667 us second phase duration
+116 ms everything
+-
+i160-042.in Correct 1486
+160 node number
+7 terminal number
+1 ms graph read
+82 ms distances duration
+0 ms copy duration
+1874 us first phase duration
+31666 us second phase duration
+115 ms everything
+-
+i160-043.in Correct 1549
+160 node number
+7 terminal number
+1 ms graph read
+81 ms distances duration
+0 ms copy duration
+1879 us first phase duration
+31657 us second phase duration
+115 ms everything
+-
+i160-044.in Correct 1478
+160 node number
+7 terminal number
+0 ms graph read
+80 ms distances duration
+0 ms copy duration
+1895 us first phase duration
+31666 us second phase duration
+113 ms everything
+-
+i160-045.in Correct 1554
+160 node number
+7 terminal number
+1 ms graph read
+81 ms distances duration
+0 ms copy duration
+1881 us first phase duration
+31659 us second phase duration
+114 ms everything
+-
+i160-101.in Correct 3859
+160 node number
+12 terminal number
+0 ms graph read
+82 ms distances duration
+1 ms copy duration
+500509 us first phase duration
+1031812 us second phase duration
+1616 ms everything
+-
+i160-102.in Correct 3747
+160 node number
+12 terminal number
+0 ms graph read
+81 ms distances duration
+1 ms copy duration
+499699 us first phase duration
+1032178 us second phase duration
+1614 ms everything
+-
+i160-103.in Correct 3837
+160 node number
+12 terminal number
+0 ms graph read
+82 ms distances duration
+1 ms copy duration
+498533 us first phase duration
+1033037 us second phase duration
+1615 ms everything
+-
+i160-104.in Correct 4063
+160 node number
+12 terminal number
+0 ms graph read
+84 ms distances duration
+1 ms copy duration
+500892 us first phase duration
+1030203 us second phase duration
+1616 ms everything
+-
+i160-105.in Correct 3563
+160 node number
+12 terminal number
+0 ms graph read
+82 ms distances duration
+1 ms copy duration
+500048 us first phase duration
+1032317 us second phase duration
+1616 ms everything
+-
+i160-111.in Correct 2869
+160 node number
+12 terminal number
+0 ms graph read
+83 ms distances duration
+1 ms copy duration
+499756 us first phase duration
+1030788 us second phase duration
+1615 ms everything
+-
+i160-112.in Correct 2924
+160 node number
+12 terminal number
+0 ms graph read
+82 ms distances duration
+1 ms copy duration
+500288 us first phase duration
+1030142 us second phase duration
+1614 ms everything
+-
+i160-113.in Correct 2866
+160 node number
+12 terminal number
+0 ms graph read
+83 ms distances duration
+1 ms copy duration
+498750 us first phase duration
+1028953 us second phase duration
+1612 ms everything
+-
+i160-114.in Correct 2989
+160 node number
+12 terminal number
+0 ms graph read
+82 ms distances duration
+1 ms copy duration
+500313 us first phase duration
+1029726 us second phase duration
+1614 ms everything
+-
+i160-115.in Correct 2937
+160 node number
+12 terminal number
+0 ms graph read
+84 ms distances duration
+1 ms copy duration
+500127 us first phase duration
+1028896 us second phase duration
+1614 ms everything
+-
+i160-121.in Correct 2363
+160 node number
+12 terminal number
+1 ms graph read
+76 ms distances duration
+1 ms copy duration
+492973 us first phase duration
+1025416 us second phase duration
+1596 ms everything
+-
+i160-122.in Correct 2348
+160 node number
+12 terminal number
+5 ms graph read
+80 ms distances duration
+1 ms copy duration
+493284 us first phase duration
+1025958 us second phase duration
+1600 ms everything
+-
+i160-123.in Correct 2355
+160 node number
+12 terminal number
+5 ms graph read
+76 ms distances duration
+1 ms copy duration
+493390 us first phase duration
+1025752 us second phase duration
+1597 ms everything
+-
+i160-124.in Correct 2352
+160 node number
+12 terminal number
+5 ms graph read
+80 ms distances duration
+1 ms copy duration
+493380 us first phase duration
+1026817 us second phase duration
+1602 ms everything
+-
+i160-125.in Correct 2351
+160 node number
+12 terminal number
+5 ms graph read
+78 ms distances duration
+1 ms copy duration
+493035 us first phase duration
+1025997 us second phase duration
+1598 ms everything
+-
+i160-131.in Correct 3356
+160 node number
+12 terminal number
+0 ms graph read
+83 ms distances duration
+1 ms copy duration
+499913 us first phase duration
+1030788 us second phase duration
+1615 ms everything
+-
+i160-132.in Correct 3450
+160 node number
+12 terminal number
+0 ms graph read
+83 ms distances duration
+1 ms copy duration
+500148 us first phase duration
+1034911 us second phase duration
+1619 ms everything
+-
+i160-133.in Correct 3585
+160 node number
+12 terminal number
+0 ms graph read
+83 ms distances duration
+1 ms copy duration
+500163 us first phase duration
+1031054 us second phase duration
+1615 ms everything
+-
+i160-134.in Correct 3470
+160 node number
+12 terminal number
+0 ms graph read
+83 ms distances duration
+1 ms copy duration
+512328 us first phase duration
+1054070 us second phase duration
+1650 ms everything
+-
+i160-135.in Correct 3716
+160 node number
+12 terminal number
+0 ms graph read
+85 ms distances duration
+1 ms copy duration
+499179 us first phase duration
+1031356 us second phase duration
+1617 ms everything
+-
+i160-141.in Correct 2549
+160 node number
+12 terminal number
+0 ms graph read
+81 ms distances duration
+1 ms copy duration
+499062 us first phase duration
+1027490 us second phase duration
+1609 ms everything
+-
+i160-142.in Correct 2562
+160 node number
+12 terminal number
+1 ms graph read
+85 ms distances duration
+1 ms copy duration
+502190 us first phase duration
+1034928 us second phase duration
+1623 ms everything
+-
+i160-143.in Correct 2557
+160 node number
+12 terminal number
+1 ms graph read
+85 ms distances duration
+1 ms copy duration
+500218 us first phase duration
+1028073 us second phase duration
+1615 ms everything
+-
+i160-144.in Correct 2607
+160 node number
+12 terminal number
+0 ms graph read
+81 ms distances duration
+1 ms copy duration
+515723 us first phase duration
+1043912 us second phase duration
+1642 ms everything
+-
+i160-145.in Correct 2578
+160 node number
+12 terminal number
+1 ms graph read
+83 ms distances duration
+1 ms copy duration
+510630 us first phase duration
+1056715 us second phase duration
+1652 ms everything

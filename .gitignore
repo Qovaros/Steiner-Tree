@@ -3,3 +3,5 @@ algorithms/Dreyfus-Wagner/test/
 algorithms/Dreyfus-Wagner/results/
 algorithms/Dreyfus-Wagner/bin/
 algorithms/Dreyfus-Wagner/build/
+algorithms/Dreyfus-Wagner/for_rust/
+algorithms/Dreyfus-Wagner/rust/

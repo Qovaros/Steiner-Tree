@@ -1,0 +1,90 @@
+-
+diw0250.in Correct 350
+353 node number
+11 terminal number
+1 ms graph read
+808 ms distances duration
+1 ms copy duration
+368392 us first phase duration
+2515843 us second phase duration
+3694 ms everything
+-
+diw0260.in Correct 468
+539 node number
+12 terminal number
+2 ms graph read
+2879 ms distances duration
+3 ms copy duration
+1730808 us first phase duration
+11755012 us second phase duration
+16368 ms everything
+-
+diw0313.in Correct 397
+468 node number
+14 terminal number
+2 ms graph read
+1879 ms distances duration
+12 ms copy duration
+13585248 us first phase duration
+35356442 us second phase duration
+50834 ms everything
+-
+diw0393.in Correct 302
+212 node number
+11 terminal number
+0 ms graph read
+181 ms distances duration
+0 ms copy duration
+222435 us first phase duration
+907827 us second phase duration
+1313 ms everything
+-
+diw0460.in Correct 345
+339 node number
+13 terminal number
+1 ms graph read
+717 ms distances duration
+4 ms copy duration
+3226029 us first phase duration
+9292114 us second phase duration
+13240 ms everything
+-
+diw0495.in Correct 616
+938 node number
+10 terminal number
+3 ms graph read
+15026 ms distances duration
+1 ms copy duration
+325342 us first phase duration
+8806152 us second phase duration
+24159 ms everything
+-
+diw0513.in Correct 604
+918 node number
+10 terminal number
+7 ms graph read
+14078 ms distances duration
+1 ms copy duration
+315809 us first phase duration
+8454424 us second phase duration
+22850 ms everything
+-
+diw0523.in Correct 561
+1080 node number
+10 terminal number
+8 ms graph read
+22910 ms distances duration
+1 ms copy duration
+369916 us first phase duration
+11703297 us second phase duration
+34985 ms everything
+-
+diw0540.in Correct 374
+286 node number
+10 terminal number
+1 ms graph read
+430 ms distances duration
+0 ms copy duration
+98218 us first phase duration
+821888 us second phase duration
+1350 ms everything

@@ -1,0 +1,50 @@
+-
+taq0023.in Correct 621
+572 node number
+11 terminal number
+3 ms graph read
+3411 ms distances duration
+1 ms copy duration
+595035 us first phase duration
+6551658 us second phase duration
+10560 ms everything
+-
+taq0431.in Correct 897
+1128 node number
+13 terminal number
+8 ms graph read
+26664 ms distances duration
+14 ms copy duration
+11254950 us first phase duration
+102744042 us second phase duration
+140678 ms everything
+-
+taq0631.in Correct 581
+609 node number
+10 terminal number
+3 ms graph read
+4100 ms distances duration
+0 ms copy duration
+209514 us first phase duration
+3717913 us second phase duration
+8028 ms everything
+-
+taq0891.in Correct 319
+331 node number
+10 terminal number
+0 ms graph read
+672 ms distances duration
+0 ms copy duration
+114199 us first phase duration
+1106900 us second phase duration
+1894 ms everything
+-
+taq0978.in Correct 566
+777 node number
+10 terminal number
+4 ms graph read
+8493 ms distances duration
+1 ms copy duration
+267068 us first phase duration
+6055973 us second phase duration
+14817 ms everything

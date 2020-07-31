@@ -1,0 +1,60 @@
+-
+p401.in Correct 155
+100 node number
+5 terminal number
+2 ms graph read
+27 ms distances duration
+0 ms copy duration
+103 us first phase duration
+2985 us second phase duration
+30 ms everything
+-
+p402.in Correct 116
+100 node number
+5 terminal number
+2 ms graph read
+27 ms distances duration
+0 ms copy duration
+104 us first phase duration
+2986 us second phase duration
+30 ms everything
+-
+p403.in Correct 179
+100 node number
+5 terminal number
+1 ms graph read
+23 ms distances duration
+0 ms copy duration
+102 us first phase duration
+2991 us second phase duration
+26 ms everything
+-
+p404.in Correct 270
+100 node number
+10 terminal number
+2 ms graph read
+25 ms distances duration
+0 ms copy duration
+34328 us first phase duration
+101406 us second phase duration
+161 ms everything
+-
+p405.in Correct 270
+100 node number
+10 terminal number
+2 ms graph read
+26 ms distances duration
+0 ms copy duration
+34740 us first phase duration
+102543 us second phase duration
+163 ms everything
+-
+p406.in Correct 290
+100 node number
+10 terminal number
+1 ms graph read
+25 ms distances duration
+0 ms copy duration
+34543 us first phase duration
+101527 us second phase duration
+161 ms everything

@@ -1,0 +1,150 @@
+-
+es10fst01.in Correct 22920745
+18 node number
+10 terminal number
+0 ms graph read
+0 ms distances duration
+0 ms copy duration
+9942 us first phase duration
+6822 us second phase duration
+17 ms everything
+-
+es10fst02.in Correct 19134104
+14 node number
+10 terminal number
+0 ms graph read
+0 ms distances duration
+0 ms copy duration
+8693 us first phase duration
+4323 us second phase duration
+13 ms everything
+-
+es10fst03.in Correct 26003678
+17 node number
+10 terminal number
+0 ms graph read
+0 ms distances duration
+0 ms copy duration
+10742 us first phase duration
+6748 us second phase duration
+18 ms everything
+-
+es10fst04.in Correct 20461116
+18 node number
+10 terminal number
+0 ms graph read
+0 ms distances duration
+0 ms copy duration
+11281 us first phase duration
+7466 us second phase duration
+19 ms everything
+-
+es10fst05.in Correct 18818916
+12 node number
+10 terminal number
+0 ms graph read
+0 ms distances duration
+0 ms copy duration
+9713 us first phase duration
+3830 us second phase duration
+14 ms everything
+-
+es10fst06.in Correct 26540768
+17 node number
+10 terminal number
+0 ms graph read
+0 ms distances duration
+0 ms copy duration
+9290 us first phase duration
+6080 us second phase duration
+15 ms everything
+-
+es10fst07.in Correct 26025072
+14 node number
+10 terminal number
+0 ms graph read
+0 ms distances duration
+0 ms copy duration
+8893 us first phase duration
+4543 us second phase duration
+13 ms everything
+-
+es10fst08.in Correct 25056214
+21 node number
+10 terminal number
+0 ms graph read
+0 ms distances duration
+0 ms copy duration
+11408 us first phase duration
+8912 us second phase duration
+21 ms everything
+-
+es10fst09.in Correct 22062355
+21 node number
+10 terminal number
+0 ms graph read
+0 ms distances duration
+0 ms copy duration
+11443 us first phase duration
+8909 us second phase duration
+21 ms everything
+-
+es10fst10.in Correct 23936095
+18 node number
+10 terminal number
+0 ms graph read
+0 ms distances duration
+0 ms copy duration
+9061 us first phase duration
+6456 us second phase duration
+16 ms everything
+-
+es10fst11.in Correct 22239535
+14 node number
+10 terminal number
+0 ms graph read
+0 ms distances duration
+0 ms copy duration
+6862 us first phase duration
+3544 us second phase duration
+10 ms everything
+-
+es10fst12.in Correct 19626318
+13 node number
+10 terminal number
+0 ms graph read
+0 ms distances duration
+0 ms copy duration
+7765 us first phase duration
+3666 us second phase duration
+11 ms everything
+-
+es10fst13.in Correct 19483914
+18 node number
+10 terminal number
+0 ms graph read
+0 ms distances duration
+0 ms copy duration
+9275 us first phase duration
+5758 us second phase duration
+15 ms everything
+-
+es10fst14.in Correct 21856128
+24 node number
+10 terminal number
+0 ms graph read
+0 ms distances duration
+0 ms copy duration
+12022 us first phase duration
+10611 us second phase duration
+23 ms everything
+-
+es10fst15.in Correct 18641924
+16 node number
+10 terminal number
+0 ms graph read
+0 ms distances duration
+0 ms copy duration
+7611 us first phase duration
+3520 us second phase duration
+11 ms everything

@@ -1,0 +1,250 @@
+-
+i640-001.in Correct 4033
+640 node number
+9 terminal number
+2 ms graph read
+4780 ms distances duration
+0 ms copy duration
+72699 us first phase duration
+2051038 us second phase duration
+6904 ms everything
+-
+i640-002.in Correct 3588
+640 node number
+9 terminal number
+4 ms graph read
+4926 ms distances duration
+0 ms copy duration
+74379 us first phase duration
+2091062 us second phase duration
+7092 ms everything
+-
+i640-003.in Correct 3438
+640 node number
+9 terminal number
+4 ms graph read
+4834 ms distances duration
+0 ms copy duration
+75288 us first phase duration
+2073952 us second phase duration
+6984 ms everything
+-
+i640-004.in Correct 4000
+640 node number
+9 terminal number
+3 ms graph read
+4782 ms distances duration
+0 ms copy duration
+72527 us first phase duration
+2043101 us second phase duration
+6898 ms everything
+-
+i640-005.in Correct 4006
+640 node number
+9 terminal number
+1 ms graph read
+4772 ms distances duration
+0 ms copy duration
+72243 us first phase duration
+2043346 us second phase duration
+6888 ms everything
+-
+i640-011.in Correct 2392
+640 node number
+9 terminal number
+4 ms graph read
+4852 ms distances duration
+0 ms copy duration
+73486 us first phase duration
+2062316 us second phase duration
+6988 ms everything
+-
+i640-012.in Correct 2465
+640 node number
+9 terminal number
+1 ms graph read
+4817 ms distances duration
+0 ms copy duration
+72879 us first phase duration
+2050604 us second phase duration
+6941 ms everything
+-
+i640-013.in Correct 2399
+640 node number
+9 terminal number
+4 ms graph read
+4806 ms distances duration
+0 ms copy duration
+72781 us first phase duration
+2040775 us second phase duration
+6920 ms everything
+-
+i640-014.in Correct 2171
+640 node number
+9 terminal number
+5 ms graph read
+4768 ms distances duration
+0 ms copy duration
+73230 us first phase duration
+2048067 us second phase duration
+6890 ms everything
+-
+i640-015.in Correct 2347
+640 node number
+9 terminal number
+5 ms graph read
+4775 ms distances duration
+0 ms copy duration
+72224 us first phase duration
+2041324 us second phase duration
+6889 ms everything
+-
+i640-021.in Correct 1749
+640 node number
+9 terminal number
+36 ms graph read
+4797 ms distances duration
+0 ms copy duration
+72309 us first phase duration
+2070077 us second phase duration
+6939 ms everything
+-
+i640-022.in Correct 1756
+640 node number
+9 terminal number
+36 ms graph read
+4784 ms distances duration
+0 ms copy duration
+70487 us first phase duration
+2041564 us second phase duration
+6897 ms everything
+-
+i640-023.in Correct 1754
+640 node number
+9 terminal number
+35 ms graph read
+4780 ms distances duration
+0 ms copy duration
+70248 us first phase duration
+2038242 us second phase duration
+6889 ms everything
+-
+i640-024.in Correct 1751
+640 node number
+9 terminal number
+34 ms graph read
+4769 ms distances duration
+0 ms copy duration
+70453 us first phase duration
+2054030 us second phase duration
+6894 ms everything
+-
+i640-025.in Correct 1745
+640 node number
+9 terminal number
+34 ms graph read
+4768 ms distances duration
+0 ms copy duration
+70155 us first phase duration
+2037389 us second phase duration
+6876 ms everything
+-
+i640-031.in Correct 3278
+640 node number
+9 terminal number
+4 ms graph read
+4794 ms distances duration
+0 ms copy duration
+72578 us first phase duration
+2041624 us second phase duration
+6909 ms everything
+-
+i640-032.in Correct 3187
+640 node number
+9 terminal number
+1 ms graph read
+4750 ms distances duration
+0 ms copy duration
+72924 us first phase duration
+2040236 us second phase duration
+6864 ms everything
+-
+i640-033.in Correct 3260
+640 node number
+9 terminal number
+4 ms graph read
+4754 ms distances duration
+0 ms copy duration
+72936 us first phase duration
+2044871 us second phase duration
+6873 ms everything
+-
+i640-034.in Correct 2953
+640 node number
+9 terminal number
+1 ms graph read
+4830 ms distances duration
+0 ms copy duration
+72678 us first phase duration
+2042103 us second phase duration
+6946 ms everything
+-
+i640-035.in Correct 3292
+640 node number
+9 terminal number
+4 ms graph read
+4811 ms distances duration
+0 ms copy duration
+72495 us first phase duration
+2041396 us second phase duration
+6925 ms everything
+-
+i640-041.in Correct 1897
+640 node number
+9 terminal number
+15 ms graph read
+4768 ms distances duration
+0 ms copy duration
+73136 us first phase duration
+2042458 us second phase duration
+6884 ms everything
+-
+i640-042.in Correct 1934
+640 node number
+9 terminal number
+12 ms graph read
+4830 ms distances duration
+0 ms copy duration
+72717 us first phase duration
+2039157 us second phase duration
+6943 ms everything
+-
+i640-043.in Correct 1931
+640 node number
+9 terminal number
+6 ms graph read
+4780 ms distances duration
+0 ms copy duration
+76951 us first phase duration
+2135599 us second phase duration
+6993 ms everything
+-
+i640-044.in Correct 1938
+640 node number
+9 terminal number
+15 ms graph read
+4790 ms distances duration
+0 ms copy duration
+72675 us first phase duration
+2038913 us second phase duration
+6902 ms everything
+-
+i640-045.in Correct 1866
+640 node number
+9 terminal number
+14 ms graph read
+4822 ms distances duration
+0 ms copy duration
+72593 us first phase duration
+2042419 us second phase duration
+6938 ms everything

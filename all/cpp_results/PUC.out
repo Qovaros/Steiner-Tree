@@ -1,0 +1,60 @@
+-
+cc3-4p.in Correct 2338
+64 node number
+8 terminal number
+0 ms graph read
+11 ms distances duration
+0 ms copy duration
+2377 us first phase duration
+10452 us second phase duration
+24 ms everything
+-
+cc3-4u.in Correct 23
+64 node number
+8 terminal number
+0 ms graph read
+10 ms distances duration
+0 ms copy duration
+2454 us first phase duration
+11757 us second phase duration
+25 ms everything
+-
+cc3-5p.in Correct 3661
+125 node number
+13 terminal number
+0 ms graph read
+44 ms distances duration
+2 ms copy duration
+1214819 us first phase duration
+1276900 us second phase duration
+2539 ms everything
+-
+cc3-5u.in Correct 36
+125 node number
+13 terminal number
+0 ms graph read
+43 ms distances duration
+2 ms copy duration
+1196665 us first phase duration
+1256082 us second phase duration
+2498 ms everything
+-
+cc6-2p.in Correct 3271
+64 node number
+12 terminal number
+0 ms graph read
+14 ms distances duration
+0 ms copy duration
+211677 us first phase duration
+171156 us second phase duration
+397 ms everything
+-
+cc6-2u.in Correct 32
+64 node number
+12 terminal number
+0 ms graph read
+8 ms distances duration
+0 ms copy duration
+201333 us first phase duration
+169643 us second phase duration
+380 ms everything

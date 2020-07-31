@@ -1,0 +1,60 @@
+-
+gap1413.in Correct 457
+541 node number
+10 terminal number
+3 ms graph read
+2898 ms distances duration
+0 ms copy duration
+185567 us first phase duration
+2952525 us second phase duration
+6037 ms everything
+-
+gap2740.in Correct 745
+1196 node number
+14 terminal number
+5 ms graph read
+31537 ms distances duration
+27 ms copy duration
+36292553 us first phase duration
+231792141 us second phase duration
+299652 ms everything
+-
+gap2800.in Correct 386
+386 node number
+12 terminal number
+0 ms graph read
+1049 ms distances duration
+2 ms copy duration
+1279177 us first phase duration
+6169796 us second phase duration
+8501 ms everything
+-
+gap2975.in Correct 245
+179 node number
+10 terminal number
+0 ms graph read
+112 ms distances duration
+0 ms copy duration
+63018 us first phase duration
+331890 us second phase duration
+508 ms everything
+-
+gap3036.in Correct 457
+346 node number
+13 terminal number
+1 ms graph read
+765 ms distances duration
+4 ms copy duration
+3316498 us first phase duration
+9735047 us second phase duration
+13822 ms everything
+-
+gap3100.in Correct 640
+921 node number
+11 terminal number
+8 ms graph read
+14246 ms distances duration
+2 ms copy duration
+977262 us first phase duration
+17058387 us second phase duration
+32285 ms everything
