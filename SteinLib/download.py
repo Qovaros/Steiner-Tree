@@ -62,7 +62,7 @@ def convert_tests(name, solutions):
                     if line[0] == 'T':
                         terminals.append(line[1])
         os.remove(name + '/' + file_name)
-        if len(terminals) < max_terminal_number or int(nodes) > max_node_number:
+        if len(terminals) > max_terminal_number or int(nodes) > max_node_number:
             continue
         with open(test_folder_name + name + '/' + file_name[:-4] + '.in', 'w') as f:
             f.write(str(nodes) + ' ' + str(len(edges)) + '\n')
