@@ -20,7 +20,7 @@
 
 static int hostTable[(int)1e8];
 static const int INF = 1e9;
-static const int BLOCK_SIZE = 1024;
+static const int BLOCK_NUMBER = 10;
 
 static __global__ void dreyfusWagnerFirstStep(const int *distances,
                                               int *dynamicTable,
@@ -77,6 +77,22 @@ copyDistancesToDevice(const std::vector<std::vector<int>> &distances) {
     return cudaDistances;
 }
 
+static __global__ void fillDynamicTable(const int *distances, int *dynamicTable,
+                                        const int nodes, const int mask) {
+    int nodeIndex = blockDim.x * blockIdx.x + threadIdx.x, tmp;
+    if (nodeIndex >= nodes)
+        return;
+
+    for (int node2 = 0; node2 < nodes; node2++) {
+        tmp = dynamicTable[mask * nodes + node2] +
+              distances[nodeIndex * nodes + node2];
+        dynamicTable[mask * nodes + nodeIndex] =
+            tmp < dynamicTable[mask * nodes + nodeIndex]
+                ? tmp
+                : dynamicTable[mask * nodes + nodeIndex];
+    }
+}
+
 static int *
 copyDynamicTableToDevice(const std::vector<std::vector<int>> &distances,
                          const std::vector<int> &terminals,
@@ -101,17 +117,19 @@ copyDynamicTableToDevice(const std::vector<std::vector<int>> &distances,
     return cudaDynamicTable;
 }
 
-DreyfusWagnerStatistics dreyfusWagner(std::vector<std::vector<int>> &distances,
-                                      const std::vector<int> &terminals) {
-    DreyfusWagnerStatistics statistics = {0, 0, 0, 0, 0, 0};
+DreyfusWagnerStatistics
+dreyfusWagner(std::vector<std::vector<int>> &distances,
+              const std::vector<std::vector<std::pair<int, int>>> &graph,
+              const std::vector<int> &terminals) {
+    DreyfusWagnerStatistics statistics = {0, 0, 0, 0, 0};
     if (terminals.size() <= 1) {
         return statistics;
     }
     const int fullMask = (1 << (terminals.size() - 1)) - 1;
-    int grid_size_nodes = distances.size() / BLOCK_SIZE + 1;
+    int block_size = distances.size() / BLOCK_NUMBER + 1;
 
     auto beforeFloydWarshall = std::chrono::steady_clock::now();
-    floydWarshall(distances);
+    compouteDistances(distances, graph);
     auto afterFloydWarshall = std::chrono::steady_clock::now();
     statistics.distancesDuration =
         std::chrono::duration_cast<std::chrono::milliseconds>(
@@ -127,26 +145,15 @@ DreyfusWagnerStatistics dreyfusWagner(std::vector<std::vector<int>> &distances,
         std::chrono::duration_cast<std::chrono::milliseconds>(afterCopy -
                                                               beforeCopy)
             .count();
-    std::chrono::nanoseconds firstPhase(0), secondPhase(0);
     for (int mask = 1; mask <= fullMask; mask++) {
-        auto beforeFirstStep = std::chrono::steady_clock::now();
-        dreyfusWagnerFirstStep<<<grid_size_nodes, BLOCK_SIZE>>>(
+        dreyfusWagnerFirstStep<<<BLOCK_NUMBER, block_size>>>(
             cudaDistances, cudaDynamicTable, distances.size(), mask);
-        auto afterFirstStep = std::chrono::steady_clock::now();
-        dreyfusWagnerSecondStep<<<grid_size_nodes, BLOCK_SIZE>>>(
+        dreyfusWagnerSecondStep<<<BLOCK_NUMBER, block_size>>>(
             cudaDistances, cudaDynamicTable, distances.size(), mask);
-        auto afterSecondStep = std::chrono::steady_clock::now();
-        firstPhase += std::chrono::duration_cast<std::chrono::nanoseconds>(
-            afterFirstStep - beforeFirstStep);
-        secondPhase += std::chrono::duration_cast<std::chrono::nanoseconds>(
-            afterSecondStep - afterFirstStep);
     }
     auto end = std::chrono::steady_clock::now();
-    statistics.firstPhaseDuration =
-        std::chrono::duration_cast<std::chrono::microseconds>(firstPhase)
-            .count();
-    statistics.secondPhaseDuration =
-        std::chrono::duration_cast<std::chrono::microseconds>(secondPhase)
+    statistics.dreyfusWagnerDuration =
+        std::chrono::duration_cast<std::chrono::milliseconds>(end - afterCopy)
             .count();
     statistics.everythingDuration =
         std::chrono::duration_cast<std::chrono::milliseconds>(
