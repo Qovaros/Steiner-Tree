@@ -121,6 +121,7 @@ DreyfusWagnerStatistics
 dreyfusWagner(std::vector<std::vector<int>> &distances,
               const std::vector<std::vector<std::pair<int, int>>> &graph,
               const std::vector<int> &terminals) {
+    cudaFree(NULL);
     DreyfusWagnerStatistics statistics = {0, 0, 0, 0, 0};
     if (terminals.size() <= 1) {
         return statistics;

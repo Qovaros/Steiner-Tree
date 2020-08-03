@@ -51,10 +51,10 @@ def write_table_to_csv_file():
 
 def write_gpu_better_table_to_csv_file():
     with open(base_result_folder + '/' + output_file_gpu, 'w') as f:
-        f.write("test,nodes,edges,terminals,gpu_results,wata-orz_results,wata-orz_results_with_preprocessing\n")
+        f.write("test,nodes,edges,terminals,gpu_results,cpu_results,wata-orz_results,wata-orz_results_with_preprocessing\n")
         for (key, value) in dictionary.items():
             if value['wata-orz_results'] == 'over 30s' or (value["gpu_results"] != 'over 30s' and value['wata-orz_results'] > value["gpu_results"]):
-                f.write(key+','+value["nodes"]+','+value["edges"]+','+value["terminals"]+','+value["gpu_results"]+','+value['wata-orz_results']+','+value["wata-orz_results_with_preprocessing"]+'\n')
+                f.write(key+','+value["nodes"]+','+value["edges"]+','+value["terminals"]+','+value["gpu_results"]+','+value['cpu_results']+','+value['wata-orz_results']+','+value["wata-orz_results_with_preprocessing"]+'\n')
 
 def write_speed_up_table_to_csv_file():
     with open(base_result_folder + '/' + output_file_gpu_vs_cpu, 'w') as f:
