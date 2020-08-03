@@ -44,7 +44,7 @@ def convert_tests(name, solutions):
     if not os.path.exists(test_folder_name + name):
         os.makedirs(test_folder_name + name)
 
-    filtered_files = [file for file in os.listdir(name) if file.endswith(".crd") or file.endswith(".grp") ]
+    filtered_files = [file for file in os.listdir(name) if file.endswith(".crd") or file.endswith("p4z100.grp") or file.endswith("p4e100.grp") or file.endswith("p4e200.grp")  ]
     for file in filtered_files:
 	    os.remove(os.path.join(name, file))
     
