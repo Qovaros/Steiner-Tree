@@ -1,0 +1,6 @@
+name,nodes,edges,terminals,nodes',edges',terminals',time,result
+antiwheel5,10,15,5,10,15,5,0.000,7
+design432,8,20,4,8,20,4,0.000,9
+oddcycle3,6,9,3,0,0,0,0.000,4
+oddwheel3,7,9,4,7,9,4,0.000,5
+se03,13,21,4,13,21,4,0.000,12

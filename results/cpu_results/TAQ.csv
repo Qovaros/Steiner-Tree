@@ -1,0 +1,11 @@
+name,nodes,edges,terminals,distances time, copy time, dreyfus-wagner time,time,result
+taq0023,572,963,11,3.487,0.001,7.414,10.903,621
+taq0431,1128,1905,13,n/a,n/a,n/a,over 30s,n/a
+taq0631,609,932,10,4.196,0,4.017,8.215,581
+taq0739,837,1438,16,n/a,n/a,n/a,over 30s,n/a
+taq0741,712,1217,16,n/a,n/a,n/a,over 30s,n/a
+taq0751,1051,1791,16,n/a,n/a,n/a,over 30s,n/a
+taq0891,331,560,10,0.688,0,1.262,1.951,319
+taq0910,310,514,17,n/a,n/a,n/a,over 30s,n/a
+taq0920,122,194,17,n/a,n/a,n/a,over 30s,n/a
+taq0978,777,1239,10,8.759,0.001,6.487,15.248,566

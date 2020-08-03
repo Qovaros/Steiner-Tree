@@ -1,0 +1,10 @@
+name,nodes,edges,terminals,distances time, copy time, dreyfus-wagner time,time,result
+gap1307,342,552,17,n/a,n/a,n/a,over 30s,n/a
+gap1413,541,906,10,2.889,0,3.126,6.017,457
+gap1500,220,374,17,n/a,n/a,n/a,over 30s,n/a
+gap1810,429,702,17,n/a,n/a,n/a,over 30s,n/a
+gap2740,1196,2084,14,n/a,n/a,n/a,over 30s,n/a
+gap2800,386,653,12,1.048,0.002,7.226,8.277,386
+gap2975,179,293,10,0.108,0,0.386,0.495,245
+gap3036,346,583,13,0.752,0.004,12.947,13.703,457
+gap3100,921,1558,11,n/a,n/a,n/a,over 30s,n/a
