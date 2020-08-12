@@ -4,6 +4,7 @@ import subprocess
 
 program_name = sys.argv[1]
 test_folder = 'for_rust/'
+destination_folder = 'test_preprocessing/'
 
 if 'withoutPreprocessing' in program_name:
     for directory in os.listdir(test_folder):
@@ -24,3 +25,9 @@ if 'withPreprocessing' in program_name:
             result = os.system("timeout 30s " + program_name + ' < ' + test_folder + directory + '/' + f + ' >> results/' + directory + '.csv ' + f)
             if result != 0:
                 os.system('echo over 30s,n/a >> results/' + directory + '.csv ')
+
+if 'generateReduced' in program_name:
+    for directory in os.listdir(test_folder):
+        os.makedirs(destination_folder+directory)
+        for f in sorted(os.listdir(test_folder+directory)):
+            os.system(program_name + " < " + test_folder+directory+'/'+f+ " > " + destination_folder + directory + '/' + f)

@@ -9,8 +9,7 @@ test_url = 'http://steinlib.zib.de/download/{}.tgz'
 solution_url = 'http://steinlib.zib.de/showset.php?{}'
 target_path = 'test.tar.gz'
 test_folder_name = 'test/'
-test_names = []
-# test_names = ['B', 'C', 'D', 'E', 'SP', 'PUC', 'I080', 'I160', 'I320', 'I640', 'P4Z', 'P6E', 'P6Z', 'DIW', 'DMXA', 'GAP', 'MSM', 'TAQ', 'LIN', 'ES10FST', 'ES20FST']
+test_names = ['B', 'C', 'D', 'E', 'SP', 'PUC', 'I080', 'I160', 'I320', 'I640', 'P4Z', 'P6E', 'P6Z', 'DIW', 'DMXA', 'GAP', 'MSM', 'TAQ', 'LIN', 'ES10FST', 'ES20FST']
 max_terminal_number = 20
 max_node_number = 1500
 
