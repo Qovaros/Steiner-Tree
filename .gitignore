@@ -6,3 +6,4 @@ algorithms/Dreyfus-Wagner/bin/
 algorithms/Dreyfus-Wagner/build/
 algorithms/Dreyfus-Wagner/for_rust/
 algorithms/Dreyfus-Wagner/rust/
+*/__pycache__/
