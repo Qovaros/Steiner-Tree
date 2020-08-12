@@ -1,0 +1,10 @@
+name,nodes,edges,terminals,distances time, copy time, dreyfus-wagner time,time,result
+diw0250,2,1,1,0,0,0,0,0
+diw0260,0,0,0,0,0,0,0,0
+diw0313,0,0,0,0,0,0,0,0
+diw0393,0,0,0,0,0,0,0,0
+diw0460,0,0,0,0,0,0,0,0
+diw0495,0,0,0,0,0,0,0,0
+diw0513,10,14,5,0,0,0,0,151
+diw0523,0,0,0,0,0,0,0,0
+diw0540,0,0,0,0,0,0,0,0

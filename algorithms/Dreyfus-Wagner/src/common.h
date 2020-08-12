@@ -3,18 +3,20 @@
 
 #include <vector>
 
-void floydWarshall(std::vector<std::vector<int>> &distances);
+void compouteDistances(
+    std::vector<std::vector<int>> &distances,
+    const std::vector<std::vector<std::pair<int, int>>> &graph);
 
-int readGraph(char *fileName, std::vector<std::vector<int>> &distances,
-              std::vector<int> &terminals);
+int readGraph(std::vector<std::vector<int>> &distances,
+              std::vector<std::vector<std::pair<int, int>>> &graph,
+              std::vector<int> &terminals, int &numberOfEdges);
 
 class DreyfusWagnerStatistics {
   public:
-    int distancesDuration;
-    int copyDuration;
-    int firstPhaseDuration;
-    int secondPhaseDuration;
-    int everythingDuration;
+    float distancesDuration;
+    float copyDuration;
+    float dreyfusWagnerDuration;
+    float everythingDuration;
     int result;
 };
 

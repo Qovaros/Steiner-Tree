@@ -9,12 +9,12 @@ test_url = 'http://steinlib.zib.de/download/{}.tgz'
 solution_url = 'http://steinlib.zib.de/showset.php?{}'
 target_path = 'test.tar.gz'
 test_folder_name = 'test/'
-test_names = ['B', 'C', 'D', 'E', 'SP', 'PUC', 'I080', 'I160', 'I320', 'I640', 'P4Z', 'P6E', 'P6Z', 'DIW', 'DMXA', 'GAP', 'MSM', 'TAQ', 'LIN', 'ES10FST']
+test_names = ['B', 'C', 'D', 'E', 'SP', 'PUC', 'I080', 'I160', 'I320', 'I640', 'P4Z', 'P6E', 'P6Z', 'DIW', 'DMXA', 'GAP', 'MSM', 'TAQ', 'LIN', 'ES10FST', 'ES20FST']
 max_terminal_number = 20
 max_node_number = 1500
 
-def get_solutions(name):
-    html = requests.get(solution_url.format(name)).text
+def get_solutions(url):
+    html = requests.get(url).text
     table_rows = BeautifulSoup(html, "lxml").find("table").find_all("tr")
 
     solutions = []
@@ -28,8 +28,8 @@ def get_solutions(name):
     return solutions
 
 
-def download_tests(name):
-    response = requests.get(test_url.format(name), stream=True)
+def download_tests(url):
+    response = requests.get(url, stream=True)
     if response.status_code == 200:
         with open(target_path, 'wb') as f:
             f.write(response.raw.read())
@@ -44,7 +44,7 @@ def delete_bigger_tests(name, solutions):
     if not os.path.exists(test_folder_name + name):
         os.makedirs(test_folder_name + name)
 
-    filtered_files = [file for file in os.listdir(name) if file.endswith(".crd") or file.endswith("p4z100.grp") ]
+    filtered_files = [file for file in os.listdir(name) if file.endswith(".crd") or file.endswith(".grp") ]
     for file in filtered_files:
 	    os.remove(os.path.join(name, file))
     
@@ -65,10 +65,15 @@ def delete_bigger_tests(name, solutions):
             os.remove(name + '/' + file_name)
 
 def download_dataset(name):
-    solutions = get_solutions(name)
-    download_tests(name)
+    solutions = get_solutions(solution_url.format(name))
+    download_tests(test_url.format(name))
     delete_bigger_tests(name, solutions)
 
 
 for name in test_names:
     download_dataset(name)
+
+download_tests("http://steinlib.zib.de/download/P4E/P4E.tgz")
+solutions = get_solutions("http://steinlib.zib.de/showset.php?P4E")
+delete_bigger_tests("P4E", solutions)
+

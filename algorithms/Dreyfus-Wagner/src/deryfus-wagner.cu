@@ -20,15 +20,17 @@
 
 static int hostTable[(int)1e8];
 static const int INF = 1e9;
-static const int BLOCK_SIZE = 1024;
+static const int MAX_THREADS = 1024;
 
 static __global__ void dreyfusWagnerFirstStep(const int *distances,
-                                              int *dynamicTable,
-                                              const int nodes, const int mask) {
-    int nodeIndex = blockDim.x * blockIdx.x + threadIdx.x, tmp;
-    if (nodeIndex >= nodes)
+                                              int *dynamicTable, int *masks,
+                                              const int nodes,
+                                              const int masksStart,
+                                              const int masksEnd) {
+    int maskIndex = threadIdx.x, nodeIndex = blockIdx.x, tmp;
+    if (maskIndex >= masksEnd - masksStart)
         return;
-
+    int mask = masks[masksStart + maskIndex];
     for (int subMask = (mask - 1) & mask; subMask;
          subMask = (subMask - 1) & mask) {
         tmp = dynamicTable[subMask * nodes + nodeIndex] +
@@ -41,21 +43,22 @@ static __global__ void dreyfusWagnerFirstStep(const int *distances,
 }
 
 static __global__ void dreyfusWagnerSecondStep(const int *distances,
-                                               int *dynamicTable,
+                                               int *dynamicTable, int *masks,
                                                const int nodes,
-                                               const int mask) {
-    int nodeIndex = blockDim.x * blockIdx.x + threadIdx.x, tmp;
-    if (nodeIndex >= nodes)
+                                               const int masksStart,
+                                               const int masksEnd) {
+    int maskIndex = threadIdx.x, nodeIndex = blockIdx.x, tmp;
+    if (maskIndex >= masksEnd - masksStart)
         return;
-
-    for (int node2 = 0; node2 < nodes; node2++) {
-        tmp = dynamicTable[mask * nodes + node2] +
-              distances[nodeIndex * nodes + node2];
-        dynamicTable[mask * nodes + nodeIndex] =
-            tmp < dynamicTable[mask * nodes + nodeIndex]
-                ? tmp
-                : dynamicTable[mask * nodes + nodeIndex];
-    }
+    int mask = masks[masksStart + maskIndex];
+        for (int node2 = 0; node2 < nodes; node2++) {
+            tmp = dynamicTable[mask * nodes + node2] +
+                  distances[nodeIndex * nodes + node2];
+            dynamicTable[mask * nodes + nodeIndex] =
+                tmp < dynamicTable[mask * nodes + nodeIndex]
+                    ? tmp
+                    : dynamicTable[mask * nodes + nodeIndex];
+        }
 }
 
 static int *
@@ -101,17 +104,42 @@ copyDynamicTableToDevice(const std::vector<std::vector<int>> &distances,
     return cudaDynamicTable;
 }
 
-DreyfusWagnerStatistics dreyfusWagner(std::vector<std::vector<int>> &distances,
-                                      const std::vector<int> &terminals) {
-    DreyfusWagnerStatistics statistics = {0, 0, 0, 0, 0, 0};
+static int *copyMasksToDevice(const int &terminals, const int &fullMask,
+                              std::vector<int> &masksBeginings) {
+    std::vector<std::vector<int>> masks(terminals);
+
+    for (int mask = 1; mask <= fullMask; mask++) {
+        masks[__builtin_popcount(mask) - 1].push_back(mask);
+    }
+
+    int *cudaMasksTable;
+    cudaMalloc(&cudaMasksTable, (fullMask + 1) * sizeof(int));
+    for (int i = 0, j = 0; i < masks.size(); j += masks[i].size(), i++) {
+        masksBeginings.push_back(j);
+        cudaMemcpy(cudaMasksTable + j, &masks[i][0],
+                   masks[i].size() * sizeof(int), cudaMemcpyHostToDevice);
+    }
+    masksBeginings.push_back(
+        masksBeginings[masksBeginings.size() - 1] +
+        masks[masks.size() - 1].size()); // could be just +1
+
+    return cudaMasksTable;
+}
+
+DreyfusWagnerStatistics
+dreyfusWagner(std::vector<std::vector<int>> &distances,
+              const std::vector<std::vector<std::pair<int, int>>> &graph,
+              const std::vector<int> &terminals) {
+    cudaFree(NULL);
+    DreyfusWagnerStatistics statistics = {0, 0, 0, 0, 0};
     if (terminals.size() <= 1) {
         return statistics;
     }
     const int fullMask = (1 << (terminals.size() - 1)) - 1;
-    int grid_size_nodes = distances.size() / BLOCK_SIZE + 1;
+    std::vector<int> masksBeginings;
 
     auto beforeFloydWarshall = std::chrono::steady_clock::now();
-    floydWarshall(distances);
+    compouteDistances(distances, graph);
     auto afterFloydWarshall = std::chrono::steady_clock::now();
     statistics.distancesDuration =
         std::chrono::duration_cast<std::chrono::milliseconds>(
@@ -122,43 +150,44 @@ DreyfusWagnerStatistics dreyfusWagner(std::vector<std::vector<int>> &distances,
     int *cudaDistances = copyDistancesToDevice(distances);
     int *cudaDynamicTable =
         copyDynamicTableToDevice(distances, terminals, fullMask);
+    int *cudaMasksTable =
+        copyMasksToDevice(terminals.size() - 1, fullMask, masksBeginings);
     auto afterCopy = std::chrono::steady_clock::now();
     statistics.copyDuration =
         std::chrono::duration_cast<std::chrono::milliseconds>(afterCopy -
                                                               beforeCopy)
             .count();
-    std::chrono::nanoseconds firstPhase(0), secondPhase(0);
-    for (int mask = 1; mask <= fullMask; mask++) {
-        auto beforeFirstStep = std::chrono::steady_clock::now();
-        dreyfusWagnerFirstStep<<<grid_size_nodes, BLOCK_SIZE>>>(
-            cudaDistances, cudaDynamicTable, distances.size(), mask);
-        auto afterFirstStep = std::chrono::steady_clock::now();
-        dreyfusWagnerSecondStep<<<grid_size_nodes, BLOCK_SIZE>>>(
-            cudaDistances, cudaDynamicTable, distances.size(), mask);
-        auto afterSecondStep = std::chrono::steady_clock::now();
-        firstPhase += std::chrono::duration_cast<std::chrono::nanoseconds>(
-            afterFirstStep - beforeFirstStep);
-        secondPhase += std::chrono::duration_cast<std::chrono::nanoseconds>(
-            afterSecondStep - afterFirstStep);
+    for (int maskSize = 1; maskSize < masksBeginings.size(); maskSize++) {
+        for (int i = 0, block_size;
+             i < masksBeginings[maskSize] - masksBeginings[maskSize - 1];
+             i += MAX_THREADS) {
+            block_size = std::min(
+                (masksBeginings[maskSize] - masksBeginings[maskSize - 1] - i),
+                MAX_THREADS);
+            dreyfusWagnerFirstStep<<<distances.size(), block_size>>>(
+                cudaDistances, cudaDynamicTable, cudaMasksTable,
+                distances.size(), masksBeginings[maskSize - 1] + i,
+                masksBeginings[maskSize] + i);
+            dreyfusWagnerSecondStep<<<distances.size(), block_size>>>(
+                cudaDistances, cudaDynamicTable, cudaMasksTable,
+                distances.size(), masksBeginings[maskSize - 1] + i,
+                masksBeginings[maskSize] + i);
+        }
     }
+    cudaMemcpy(&statistics.result,
+               cudaDynamicTable +
+                   (fullMask * distances.size() + terminals.back()),
+               1 * sizeof(int), cudaMemcpyDeviceToHost);
     auto end = std::chrono::steady_clock::now();
-    statistics.firstPhaseDuration =
-        std::chrono::duration_cast<std::chrono::microseconds>(firstPhase)
-            .count();
-    statistics.secondPhaseDuration =
-        std::chrono::duration_cast<std::chrono::microseconds>(secondPhase)
+    statistics.dreyfusWagnerDuration =
+        std::chrono::duration_cast<std::chrono::milliseconds>(end - afterCopy)
             .count();
     statistics.everythingDuration =
         std::chrono::duration_cast<std::chrono::milliseconds>(
             end - beforeFloydWarshall)
             .count();
-    cudaMemcpy(&statistics.result,
-               cudaDynamicTable +
-                   (fullMask * distances.size() + terminals.back()),
-               1 * sizeof(int), cudaMemcpyDeviceToHost);
-
     cudaFree(cudaDistances);
     cudaFree(cudaDynamicTable);
-
+    cudaFree(cudaMasksTable);
     return statistics;
 }
