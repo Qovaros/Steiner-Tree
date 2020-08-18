@@ -3,7 +3,7 @@ import sys
 import subprocess
 
 program_name = sys.argv[1]
-test_folder = 'test/'
+test_folder = 'test_preprocessing/'
 
 for directory in os.listdir(test_folder):
     os.system('echo name,nodes,edges,terminals,distances time, copy time, dreyfus-wagner time,time,result >> results/' + directory + '.csv ')

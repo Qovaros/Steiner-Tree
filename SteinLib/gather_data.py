@@ -12,7 +12,7 @@ def parse_result(base_result_folder, result_folder, dictionary):
             time = firstLine.index('time')
             for line in [l.split('\n')[0].split(',') for l in f.readlines()]:
                 if line[name] not in dictionary:
-                    dictionary[line[name]] = {"nodes": line[nodes], "edges": line[edges], "terminals": line[terminals]}
+                    dictionary[line[name]] = {"name": file_name[:-4], "nodes": int(line[nodes]), "edges": int(line[edges]), "terminals": int(line[terminals])}
                 if len(line) == len(firstLine):
                     dictionary[line[name]][solution_key] = line[time]
                 else:
