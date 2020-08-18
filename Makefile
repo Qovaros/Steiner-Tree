@@ -9,7 +9,8 @@ LDFLAGS=$(NVARCH) -lcuda
 gpu-debug : CCFLAGS += -g
 gpu-release : CCFLAGS += -O3 -DNDEBUG
 gpu-release : LDFLAGS += -O3
-SRC_DIR:=src
+BASE_DIR=Dreyfus-Wagner
+SRC_DIR:=$(BASE_DIR)/src
 INT_DIR:=build
 INT_DIR_DEBUG:=$(INT_DIR)/debug
 INT_DIR_RELEASE:=$(INT_DIR)/release
@@ -46,16 +47,16 @@ gpu-release: $(GPU_OUT_DIR)/$(TARGET_RELEASE)
 cpu: $(CPU_OUT_DIR)/$(TARGET_RELEASE)
 
 test-cpu: $(CPU_OUT_DIR)/$(TARGET_RELEASE)
-	python3 ../../SteinLib/test.py bin/cpu/program
+	python3 SteinLib/test.py $(BASE_DIR)/bin/cpu/program
 
 test-gpu: $(GPU_OUT_DIR)/$(TARGET_RELEASE)
 	rm -rf results/*
-	python3 ../../SteinLib/test.py bin/gpu/program
+	python3 SteinLib/test.py $(BASE_DIR)bin/gpu/program
 
 test-download:
-	python3 ../../SteinLib/download.py
+	python3 SteinLib/download.py
 
-$(CPU_OUT_DIR)/$(TARGET_RELEASE) : cpp/dreyfus-wagner.cpp | $(CPU_OUT_DIR)
+$(CPU_OUT_DIR)/$(TARGET_RELEASE) : Dreyfus-Wagner/cpp/dreyfus-wagner.cpp | $(CPU_OUT_DIR)
 	echo $^
 	echo $(CCFLAGS)
 	echo $@
