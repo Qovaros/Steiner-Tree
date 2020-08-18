@@ -10,11 +10,12 @@ gpu-debug : CCFLAGS += -g
 gpu-release : CCFLAGS += -O3 -DNDEBUG
 gpu-release : LDFLAGS += -O3
 BASE_DIR=Dreyfus-Wagner
+RESULTS_DIR=results/new
 SRC_DIR:=$(BASE_DIR)/src
-INT_DIR:=build
+INT_DIR:=$(BASE_DIR)/build
 INT_DIR_DEBUG:=$(INT_DIR)/debug
 INT_DIR_RELEASE:=$(INT_DIR)/release
-OUT_DIR=bin
+OUT_DIR=$(BASE_DIR)/bin
 GPU_OUT_DIR=$(OUT_DIR)/gpu
 CPU_OUT_DIR=$(OUT_DIR)/cpu
 TEST_DIR=test
@@ -47,11 +48,14 @@ gpu-release: $(GPU_OUT_DIR)/$(TARGET_RELEASE)
 cpu: $(CPU_OUT_DIR)/$(TARGET_RELEASE)
 
 test-cpu: $(CPU_OUT_DIR)/$(TARGET_RELEASE)
-	python3 SteinLib/test.py $(BASE_DIR)/bin/cpu/program
+	rm -rf $(RESULTS_DIR)/*
+	@mkdir -p $(RESULTS_DIR)/
+	python3 SteinLib/test.py $(BASE_DIR)/bin/cpu/program $(TEST_DIR) $(RESULTS_DIR)
 
 test-gpu: $(GPU_OUT_DIR)/$(TARGET_RELEASE)
-	rm -rf results/*
-	python3 SteinLib/test.py $(BASE_DIR)bin/gpu/program
+	rm -rf $(RESULTS_DIR)/*
+	@mkdir -p $(RESULTS_DIR)/
+	python3 SteinLib/test.py $(BASE_DIR)/bin/gpu/program $(TEST_DIR) $(RESULTS_DIR)
 
 test-download:
 	python3 SteinLib/download.py
@@ -100,7 +104,7 @@ $(INT_DIR_RELEASE)/%.cud : $(SRC_DIR)/%.cu | $(DIRS_RELEASE)
 		sed 's=\($(*F)\)\.o[ :]*=$(@D)/\1.o $@ : =g;'\
 		> $@
 
-$(DIRS_DEBUG) $(DIRS_RELEASE) $(GPU_OUT_DIR) $(CPU_OUT_DIR) $(TEST_DIR):
+$(DIRS_DEBUG) $(DIRS_RELEASE) $(GPU_OUT_DIR) $(CPU_OUT_DIR) $(TEST_DIR) $(RESULTS_DIR):
 	@mkdir -p $@
 
 clean:
@@ -108,9 +112,11 @@ clean:
 	@rm -rf $(INT_DIR_RELEASE)
 	@rm -rf $(INT_DIR)
 	@rm -rf $(OUT_DIR)
+	@rm -rf $(TEST_DIR)
+	@rm -rf $(RESULTS_DIR)
 
 clean-test:
-	@rm -rf test
+	@rm -rf $(TEST_DIR)
 
 .PHONY: all debug release clean
 .SECONDARY: $(OBJS_DEBUG) $(OBJS_RELEASE) $(CUOBJS_DEBUG) $(CUOBJS_RELEASE) $(DEPS_DEBUG) $(DEPS_RELEASE) $(CUDEPS_DEBUG) $(CUDEPS_RELEASE)
