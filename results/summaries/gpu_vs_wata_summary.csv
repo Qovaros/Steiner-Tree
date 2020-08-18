@@ -1,0 +1,10 @@
+type,gpu better,wata_orz better,all
+Sparse with random weight,3,30,37
+Grid graph with holes,2,63,68
+Sparse with incidence weights,169,45,225
+Complete with euclidian weights,1,7,8
+Complete with random weights,1,7,8
+Sparse with euclidian weights,1,9,10
+Sparse constructed graphs,6,0,6
+Sparse artificially constructed graphs,0,0,5
+FST-preprocessed rectilinear L1 weights,1,0,15

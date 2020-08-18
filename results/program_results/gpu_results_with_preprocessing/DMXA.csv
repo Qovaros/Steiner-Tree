@@ -1,0 +1,10 @@
+name,nodes,edges,terminals,distances time, copy time, dreyfus-wagner time,time
+dmxa0296,0,0,0,0,0,0,0
+dmxa0628,0,0,0,0,0,0,0
+dmxa0734,12,16,6,0,0,0,0
+dmxa0848,70,120,12,0,0.001,0.004,0.005
+dmxa0903,101,167,9,0,0,0,0.001
+dmxa1109,44,69,10,0,0,0,0
+dmxa1304,0,0,0,0,0,0,0
+dmxa1516,24,36,7,0,0,0,0
+dmxa1721,40,62,9,0,0,0,0

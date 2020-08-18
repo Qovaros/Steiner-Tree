@@ -1,6 +1,0 @@
-name,nodes,edges,terminals,distances time, copy time, dreyfus-wagner time,time,result
-antiwheel5,10,15,5,0,0,0,0,7
-design432,8,20,4,0,0,0,0,9
-oddcycle3,0,0,0,0,0,0,0,0
-oddwheel3,7,9,4,0,0,0,0,5
-se03,13,21,4,0,0,0,0,12
