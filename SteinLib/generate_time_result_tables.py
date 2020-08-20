@@ -6,7 +6,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from gather_data import parse_results
 
-base_result_folder = "results"
+base_result_folder = sys.argv[1]
+destination_folder = sys.argv[2]
 result_folders = ["cpu_results", "gpu_results", "gpu_results_with_preprocessing",
                   "wata-orz_results", "wata-orz_results_with_preprocessing"]
 output_file = "summary.csv"
@@ -32,7 +33,7 @@ result_folders_gpu_better = ["gpu_results",
 dictionary = parse_results(base_result_folder, result_folders)
 
 def write_table_to_csv_file():
-    with open(base_result_folder + '/' + output_file, 'w') as f:
+    with open(destination_folder + '/' + output_file, 'w') as f:
         f.write("test,nodes,edges,terminals")
         for result_folder in result_folders:
             f.write(','+result_folder)
@@ -44,21 +45,21 @@ def write_table_to_csv_file():
             f.write('\n')
 
 def write_gpu_better_table_to_csv_file():
-    with open(base_result_folder + '/' + output_file_gpu, 'w') as f:
+    with open(destination_folder + '/' + output_file_gpu, 'w') as f:
         f.write("test,nodes,edges,terminals,gpu_results,cpu_results,wata-orz_results,wata-orz_results_with_preprocessing\n")
         for (key, value) in dictionary.items():
             if value['wata-orz_results'] == 'over 30s' or (value["gpu_results"] != 'over 30s' and value['wata-orz_results'] > value["gpu_results"]):
-                f.write(key+','+value["nodes"]+','+value["edges"]+','+value["terminals"]+','+value["gpu_results"]+','+value['cpu_results']+','+value['wata-orz_results']+','+value["wata-orz_results_with_preprocessing"]+'\n')
+                f.write(key+','+str(value["nodes"])+','+value["edges"]+','+value["terminals"]+','+value["gpu_results"]+','+value['cpu_results']+','+value['wata-orz_results']+','+value["wata-orz_results_with_preprocessing"]+'\n')
 
 def write_gpu_with_preprocessing_better_table_to_csv_file():
-    with open(base_result_folder + '/' + output_file_gpu_preprocessing, 'w') as f:
+    with open(destination_folder + '/' + output_file_gpu_preprocessing, 'w') as f:
         f.write("test,nodes,edges,terminals,gpu_results,gpu_results_with_preprocessing,wata-orz_results,wata-orz_results_with_preprocessing\n")
         for (key, value) in dictionary.items():
             if value['wata-orz_results'] == 'over 30s' or (value["gpu_results_with_preprocessing"] != 'over 30s' and value['wata-orz_results_with_preprocessing'] > value["gpu_results_with_preprocessing"]):
                 f.write(key+','+value["nodes"]+','+value["edges"]+','+value["terminals"]+','+value["gpu_results"]+','+value['gpu_results_with_preprocessing']+','+value['wata-orz_results']+','+value["wata-orz_results_with_preprocessing"]+'\n')
 
 def write_speed_up_table_to_csv_file():
-    with open(base_result_folder + '/' + output_file_gpu_vs_cpu, 'w') as f:
+    with open(destination_folder + '/' + output_file_gpu_vs_cpu, 'w') as f:
         f.write("test,nodes,edges,terminals,gpu_results,cpu_results,speed_up\n")
         for (key, value) in dictionary.items():
             if value['cpu_results'] == 'over 30s':
@@ -89,7 +90,7 @@ def write_gpu_faster_summary():
                     results[dataset_name]["gpu_results"] = results[dataset_name]["gpu_results"] + 1 
                 elif time_gpu > time_wata:
                     results[dataset_name]["wata-orz_results"] = results[dataset_name]["wata-orz_results"] + 1 
-    with open(base_result_folder + '/' + output_file_gpu_summary, 'w') as f:
+    with open(destination_folder + '/' + output_file_gpu_summary, 'w') as f:
         f.write("type,gpu better,wata_orz better,all\n")
         for (key, value) in results.items():
             f.write(key+','+str(value["gpu_results"])+','+str(value["wata-orz_results"])+','+str(value["all"])+'\n')
@@ -117,7 +118,7 @@ def write_gpu_faster_summary_with_preprocessing():
                     results[dataset_name]["gpu_results_with_preprocessing"] = results[dataset_name]["gpu_results_with_preprocessing"] + 1 
                 elif time_gpu > time_wata:
                     results[dataset_name]["wata-orz_results_with_preprocessing"] = results[dataset_name]["wata-orz_results_with_preprocessing"] + 1 
-    with open(base_result_folder + '/' + output_file_gpu_summary_preprocessing, 'w') as f:
+    with open(destination_folder + '/' + output_file_gpu_summary_preprocessing, 'w') as f:
         f.write("type,gpu better,wata_orz better,all\n")
         for (key, value) in results.items():
             f.write(key+','+str(value["gpu_results_with_preprocessing"])+','+str(value["wata-orz_results_with_preprocessing"])+','+str(value["all"])+'\n')

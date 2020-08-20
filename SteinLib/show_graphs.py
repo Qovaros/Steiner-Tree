@@ -19,7 +19,7 @@ from scipy.ndimage.filters import gaussian_filter
 #     'pgf.rcfonts': False,
 # })
 
-base_result_folder = "results"
+base_result_folder = sys.argv[1]
 data_folders = ["cpu_results", "gpu_results",
                   "wata-orz_results", "gpu_results_with_preprocessing", "wata-orz_results_with_preprocessing"]
 result_folders = ["cpu_results", "gpu_results",
@@ -112,7 +112,7 @@ def show_graph_gpu_better2():
             if time == 'over 30s':
                 time = 40.0
             for (terminal_limit_name, terminal_limit) in terminals_number.items():
-                if value['terminals'] >= terminal_limit[0] and value['terminals'] <= terminal_limit[1]:
+                if int(value['terminals']) >= terminal_limit[0] and int(value['terminals']) <= terminal_limit[1]:
                     results[terminal_limit_name][name].append(float(time)+0.0001)
 
     for (name, color, marker) in zip(terminals_number.keys(), ['red', 'blue', "green", "purple"], ["1", "2", "3", "4"]):
@@ -173,7 +173,7 @@ def show_graph_gpu_better4():
             if time == 'over 30s':
                 time = 40.0
             for (terminal_limit_name, terminal_limit) in terminals_number.items():
-                if value['terminals'] >= terminal_limit[0] and value['terminals'] <= terminal_limit[1]:
+                if int(value['terminals']) >= terminal_limit[0] and int(value['terminals']) <= terminal_limit[1]:
                     results[terminal_limit_name][name].append(float(time)+0.0001)
 
     for (name, color, marker) in zip(terminals_number.keys(), ['red', 'blue', "green", "purple"], ["1", "2", "3", "4"]):

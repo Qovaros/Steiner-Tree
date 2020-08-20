@@ -39,6 +39,14 @@ CUDEPS_DEBUG = $(CUSOURCES:$(SRC_DIR)/%.cu=$(INT_DIR_DEBUG)/%.cud)
 CUDEPS_RELEASE = $(CUSOURCES:$(SRC_DIR)/%.cu=$(INT_DIR_RELEASE)/%.cud)
 
 
+show-graphs:
+	@mkdir -p $(RESULTS_DIR)/results
+	python3 SteinLib/show_graphs.py results/program_results
+
+generate-result-tables:
+	@mkdir -p $(RESULTS_DIR)/summaries
+	python3 SteinLib/generate_time_result_tables.py results/program_results $(RESULTS_DIR)/summaries
+
 gpu: gpu-release
 
 gpu-debug: $(GPU_OUT_DIR)/$(TARGET_DEBUG)
@@ -48,14 +56,14 @@ gpu-release: $(GPU_OUT_DIR)/$(TARGET_RELEASE)
 cpu: $(CPU_OUT_DIR)/$(TARGET_RELEASE)
 
 test-cpu: $(CPU_OUT_DIR)/$(TARGET_RELEASE)
-	rm -rf $(RESULTS_DIR)/*
-	@mkdir -p $(RESULTS_DIR)/
-	python3 SteinLib/test.py $(BASE_DIR)/bin/cpu/program $(TEST_DIR) $(RESULTS_DIR)
+	rm -rf $(RESULTS_DIR)/program_results/cpu_results
+	@mkdir -p $(RESULTS_DIR)/program_results/cpu_results
+	python3 SteinLib/test.py $(BASE_DIR)/bin/cpu/program $(TEST_DIR) $(RESULTS_DIR)/program_results/cpu_results
 
 test-gpu: $(GPU_OUT_DIR)/$(TARGET_RELEASE)
-	rm -rf $(RESULTS_DIR)/*
-	@mkdir -p $(RESULTS_DIR)/
-	python3 SteinLib/test.py $(BASE_DIR)/bin/gpu/program $(TEST_DIR) $(RESULTS_DIR)
+	rm -rf $(RESULTS_DIR)/program_results/gpu_results
+	@mkdir -p $(RESULTS_DIR)/program_results/gpu_results
+	python3 SteinLib/test.py $(BASE_DIR)/bin/gpu/program $(TEST_DIR) $(RESULTS_DIR)/program_results/gpu_results
 
 test-download:
 	python3 SteinLib/download.py
